@@ -1,0 +1,25 @@
+{
+    "name": "safonovva/voyager-bread-parser",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SafonovVA\\VBParser\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "safonovva",
+            "email": "safonov.open@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SafonovVA\\VBParser\\VBServiceProvider"
+            ]
+        }
+    }
+}
