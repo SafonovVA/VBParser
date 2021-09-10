@@ -14,16 +14,18 @@ class DataParser
      *
      * @return void
      */
+    private string $docDirectory = 'storage/app/vbparser';
+
     public function __construct()
     {
-        if (!Storage::exists('public/vbparser')) {
-            Storage::makeDirectory('public/vbparser');
+        if (!file_exists($this->docDirectory)) {
+            mkdir($this->docDirectory);
         }
     }
 
     public function parse(Collection $dataRows): void
     {
-        $fileName = storage_path('app/public/vbparser/' . $dataRows->first()->getTable() . '.csv');
+        $fileName = $this->docDirectory . DIRECTORY_SEPARATOR . $dataRows->first()->getTable() . '.csv';
         $attributes = collect($dataRows->first()->getAttributes())->keys();
 
         $file = fopen($fileName, 'w');
@@ -49,7 +51,7 @@ class DataParser
 
     public function parseUserRoles()
     {
-        $fileName = storage_path('app/public/vbparser/user_roles.csv');
+        $fileName = $this->docDirectory . DIRECTORY_SEPARATOR . 'user_roles.csv';
         $attributes = collect(['user_id', 'user_name', 'role_id', 'role_name']);
 
         $file = fopen($fileName, 'w');
