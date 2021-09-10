@@ -29,13 +29,8 @@ class ParseUserRole extends Command
      */
     public function handle(): int
     {
-        try {
-            $parser = new DataParser();
-            $parser->parseUserRoles();
-        } catch (\Exception $e) {
-            $this->error($e->getMessage());
-            return 1;
-        }
+        $parser = new DataParser();
+        $parser->parseUserRoles();
 
         $this->info('Data types parsed successfully!');
         return 0;

@@ -31,13 +31,8 @@ class ParseDataRows extends Command
      */
     public function handle(): int
     {
-        try {
-            $parser = new DataParser();
-            $parser->parse(DataRow::all());
-        } catch (\Exception $e) {
-            $this->error($e->getMessage());
-            return 1;
-        }
+        $parser = new DataParser();
+        $parser->parse(DataRow::all());
 
         $this->info('Data rows parsed successfully!');
         return 0;

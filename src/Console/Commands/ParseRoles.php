@@ -29,13 +29,8 @@ class ParseRoles extends Command
      */
     public function handle(): int
     {
-        try {
-            $parser = new DataParser();
-            $parser->parse(Role::all());
-        } catch (\Exception $e) {
-            $this->error($e->getMessage());
-            return 1;
-        }
+        $parser = new DataParser();
+        $parser->parse(Role::all());
 
         $this->info('Data rows parsed successfully!');
         return 0;

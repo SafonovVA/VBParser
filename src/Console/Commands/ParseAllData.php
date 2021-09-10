@@ -28,23 +28,28 @@ class ParseAllData extends Command
      */
     public function handle(): int
     {
-        Artisan::call('vbparse:parse-data-rows');
-        $this->info('Data rows parsed successfully!');
+        try {
+            Artisan::call('vbparse:parse-data-rows');
+            $this->info('Data rows parsed successfully!');
 
-        Artisan::call('vbparse:parse-data-types');
-        $this->info('Data types parsed successfully!');
+            Artisan::call('vbparse:parse-data-types');
+            $this->info('Data types parsed successfully!');
 
-        Artisan::call('vbparse:parse-menu');
-        $this->info('Menu parsed successfully!');
+            Artisan::call('vbparse:parse-menu');
+            $this->info('Menu parsed successfully!');
 
-        Artisan::call('vbparse:parse-menu-items');
-        $this->info('Menu items parsed successfully!');
+            Artisan::call('vbparse:parse-menu-items');
+            $this->info('Menu items parsed successfully!');
 
-        Artisan::call('vbparse:parse-roles');
-        $this->info('Roles parsed successfully!');
+            Artisan::call('vbparse:parse-roles');
+            $this->info('Roles parsed successfully!');
 
-        Artisan::call('vbparse:parse-user-roles');
-        $this->info('User-roles parsed successfully!');
+            Artisan::call('vbparse:parse-user-roles');
+            $this->info('User-roles parsed successfully!');
+        } catch (\Exception $e) {
+            $this->error($e->getMessage());
+            return 1;
+        }
 
         return 0;
     }

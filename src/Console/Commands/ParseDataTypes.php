@@ -29,13 +29,8 @@ class ParseDataTypes extends Command
      */
     public function handle(): int
     {
-        try {
-            $parser = new DataParser();
-            $parser->parse(DataType::all());
-        } catch (\Exception $e) {
-            $this->error($e->getMessage());
-            return 1;
-        }
+        $parser = new DataParser();
+        $parser->parse(DataType::all());
 
         $this->info('Data types parsed successfully!');
         return 0;
