@@ -14,7 +14,7 @@ class DataParser
      *
      * @return void
      */
-    private string $docDirectory = 'storage/app/vbparser';
+    private string $docDirectory = 'storage/vbparser';
 
     public function __construct()
     {
