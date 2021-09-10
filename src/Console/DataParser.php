@@ -16,8 +16,8 @@ class DataParser
      */
     public function __construct()
     {
-        if (!Storage::exists('vbparser')) {
-            Storage::makeDirectory('vbparser');
+        if (!Storage::exists('app/public/vbparser')) {
+            Storage::makeDirectory('app/public/vbparser');
         }
     }
 
